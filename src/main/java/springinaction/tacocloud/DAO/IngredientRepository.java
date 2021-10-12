@@ -1,14 +1,8 @@
 package springinaction.tacocloud.DAO;
 
+import org.springframework.data.repository.CrudRepository;
 import springinaction.tacocloud.domain.Ingredient;
 
-import java.util.List;
+public interface IngredientRepository extends CrudRepository<Ingredient, String> {
 
-public interface IngredientRepository {
-
-    List<Ingredient> finfAll();
-
-    Ingredient findOne(String id);
-
-    Ingredient save(Ingredient ingredient);
 }

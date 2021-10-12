@@ -33,7 +33,7 @@ public class DesignTacoController {
 
         Type[] types = Type.values();
         for (Type type : types) {
-            model.addAttribute(type.name().toLowerCase(), filterByType(ingredientRepository.finfAll(), type));
+            model.addAttribute(type.name().toLowerCase(), filterByType(ingredientRepository.findAll(), type));
         }
         model.addAttribute("design", new Taco());
         return "design";
@@ -44,7 +44,7 @@ public class DesignTacoController {
         if (errors.hasErrors()) {
             Type[] types = Type.values();
             for (Type type : types) {
-                model.addAttribute(type.name().toLowerCase(), filterByType(ingredientRepository.finfAll(), type));
+                model.addAttribute(type.name().toLowerCase(), filterByType(ingredientRepository.findAll(), type));
             }
             return "design";
         }
@@ -53,8 +53,8 @@ public class DesignTacoController {
         return "redirect:/orders/current";
     }
 
-    private List<Ingredient> filterByType(List<Ingredient> ingredients, Type type) {
-        return ingredients.stream()
+    private List<Ingredient> filterByType(Iterable<Ingredient> ingredients, Type type) {
+        return ((List<Ingredient>) ingredients).stream()
                 .filter(ingredient -> ingredient.getType().equals(type))
                 .collect(Collectors.toList());
     }
