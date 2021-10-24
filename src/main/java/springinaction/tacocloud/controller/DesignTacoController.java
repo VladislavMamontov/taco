@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import springinaction.tacocloud.DAO.IngredientRepository;
 import springinaction.tacocloud.domain.Ingredient;
-import springinaction.tacocloud.domain.Ingredient.Type;
+import springinaction.tacocloud.domain.Type;
 import springinaction.tacocloud.domain.Taco;
 
 import javax.validation.Valid;
