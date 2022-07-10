@@ -3,16 +3,8 @@ version: '3.4'
 services:
 
   db:
-    image: postgres
-    restart: always
+    image: "postgres:12"
     environment:
-      POSTGRES_PASSWORD: qwerty
-      POSTGRES_USER: vladislav
-      POSTGRES_DB: taco
-    volumes:
-    - pgdata:/var/lib/postgresql/data
+      POSTGRES_PASSWORD: password
     ports:
     - "5432:5432"
-
-volumes:
-  pgdata: {}
